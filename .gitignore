@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# IDE folder
+.idea/
+
+# test reports directory
+output/
