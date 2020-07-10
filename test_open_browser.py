@@ -1,6 +1,11 @@
-from selenium.webdriver.chrome.webdriver import WebDriver
+import pytest
+from selenium import webdriver
 
-def test_open_browser():
-    driver = WebDriver(executable_path='C://WorkFiles//chromedriver.exe')
+@pytest.fixture
+def driver(request):
+    wd = webdriver.Chrome()
+    request.addfinalizer(wd.quit)
+    return wd
+
+def test_open_browser(driver):
     driver.get("https://ya.ru")
-    driver.quit()
